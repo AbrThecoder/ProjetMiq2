@@ -1,0 +1,93 @@
+@startuml
+
+abstract class Figure {
+-idFig : String // identifiant de la figure generé automatiquement
+--
++distancePoint( p : Point ) : double    // distance entre une figure et un point
+..
++maxX() : double     //abscisse maximale de la figure
++maxY() : double    //ordonnée maximale de la figure
++minX() : double     //abcisse minimale de la figure
++minY() : double    //ordonnée minimale de la figure
+..
++getIdFig() : String
++setIdFig( newIdFig : String ) : void
+}
+
+class Point {
+-x : double  // abcisse du point
+-y : double  //ordonnée du point
+-[Static] compteurId : int // compteur pour generer l'id
+--
++distancePoint( p : Point ) : double    // distance entre le Point et un autre Point
+..
+-sommeQuadratique(a : double , b : double ) : double //Aide calculer la distance
+..
++maxX() : double     //abscisse maximale du point
++maxY() : double    //ordonnée maximale du point
++minX() : double     //abcisse minimale du point
++minY() : double    //ordonnée minimale du point
+..
++getX() : double
++getY() : double
++setX( newX : double ) : void
++setY( newY : double ) : void
+..
++toString() : String
+}
+
+Figure <|-- Point
+
+class Segment {
+-p0 : Point  // Point origine du segment
+-p1 : Point  //Point extremité du segment
+-[Static] compteurId : int // compteur pour generer l'id
+--
++distancePoint( p : Point ) : double    // distance entre le segment et un Point
+..
+-min( A :double , B: double ) : double //renvoie le minimum entre A et B
+-max( A :double , B: double ) : double //renvoie le maximum entre A et B
+..
++maxX() : double
++maxY() : double
++minX() : double
++minY() : double
+..
++getP1() : Point
++getP2() : Point
++setP1( newP1 : Point ) : void
++setP2 ( newP2 : Point ) : void
+..
++toString() : String
+}
+
+Figure <|-- Segment
+Point "2"-left-" " Segment : compose >
+
+class MainClass {
++ [static] menu() : Figure[]
++ [static] entreFigure() : Figure
++ [static] entreTabFigure() : Figure[]
+}
+
+class Polygone {
+-listP : ArrayList
+-[Static] compteurId : int // compteur pour generer l'id
+--
+..
+-max(ArrayList<double>) : double //renvoie le plus petit double de la liste entrée
+-min(ArrayList<double>) : double //renvoie le plus grand double de la liste entrée
+..
++maxX() : double
++maxY() : double
++minX() : double
++minY() : double
+..
++getListP() : ArrayList<Point>
++setListP( newListP : ArrayList<Point> ) : void
+..
++toString() : String
+}
+
+Figure <|-- Polygone
+@enduml
