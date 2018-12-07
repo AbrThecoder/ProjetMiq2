@@ -40,7 +40,7 @@ public class EnsembleFigure  extends Figure implements Serializable {
         System.out.println("ID de la figure à supprimer");
         String id=Lire.S();
         for(int i=0;i<this.lfigure.size();i++){
-            if(this.lfigure.get(i).idFigure==id){
+            if(this.lfigure.get(i).idFigure.equals(id)){ 
                 supprimebyindex(i);
             }
         }
