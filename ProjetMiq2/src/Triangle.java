@@ -18,16 +18,16 @@ public class Triangle extends Figure{
         
      
 }
-    public ArrayList abscisses(int n){
+    public ArrayList abscisses(){
         ArrayList<Double> ab=new ArrayList<>();
-     for(int i=0;i<n;i++){
+     for(int i=0;i<lpoint.size();i++){
          ab.add(lpoint.get(i).abscisse);
      }
      return ab;
     }
-    public ArrayList ordonnees(int n){
+    public ArrayList ordonnees(){
         ArrayList<Double> ord=new ArrayList<>();
-     for(int i=0;i<n;i++){
+     for(int i=0;i<lpoint.size();i++){
          ord.add(lpoint.get(i).ordonnee);
      }
      return ord;
@@ -40,20 +40,20 @@ public class Triangle extends Figure{
     @Override
  public double minX(){
      
-     return (double) Collections.min(abscisses(3));
+     return (double) Collections.min(abscisses());
      }
     
     @Override
      public  double minY(){
-         return (double) Collections.min(ordonnees(3));
+         return (double) Collections.min(ordonnees());
      }
     @Override
      public  double maxX(){
-         return (double) Collections.max(abscisses(3));
+         return (double) Collections.max(abscisses());
      }
     @Override
      public  double maxY(){
-         return (double) Collections.max(ordonnees(3));
+         return (double) Collections.max(ordonnees());
      }
     @Override
      public String toString(){
