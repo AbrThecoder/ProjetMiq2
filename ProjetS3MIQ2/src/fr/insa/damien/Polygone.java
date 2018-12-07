@@ -9,11 +9,11 @@ import static fr.insa.damien.util.min;
 
 public class Polygone extends Figure {
 
-    //attributs
-    private ArrayList<Point> listP = new ArrayList<>();
     //utils
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    //attributs
+    private ArrayList<Point> listP = new ArrayList<>();
 
     //constructeurs
 

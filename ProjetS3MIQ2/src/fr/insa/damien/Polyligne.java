@@ -1,16 +1,17 @@
 package fr.insa.damien;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Locale;
+import java.util.Scanner;
 
-import static fr.insa.damien.util.*;
+import static fr.insa.damien.util.max;
+import static fr.insa.damien.util.min;
 
 public class Polyligne extends Figure {
 
-    private ArrayList<Point> listP = new ArrayList<>();
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    private ArrayList<Point> listP = new ArrayList<>();
 
     //constructeurs
 
@@ -33,21 +34,21 @@ public class Polyligne extends Figure {
         System.out.println("Création d'une serie de points pour former le Polyligne : ");
         for (int i = 0; i < 2; i++)
             listP.add(new Point());
-            while (true){
+        while (true) {
             System.out.println("Voulez vous ajouter un autre point ?(o/n)");
             String rep = sc.nextLine();
-            switch(rep) {
+            switch (rep) {
                 case "o":
                     listP.add(new Point());
                     break;
-                case "n" :
+                case "n":
                     break;
                 default:
                     throw new IllegalArgumentException("Vous devez entrer \"o\" ou \"n\"");
-                }
+            }
             if (rep.equals("n"))
                 break;
-            }
+        }
         super.setIdFig("Polyligne_N°" + compteurId);
         compteurId++;
     }
@@ -113,11 +114,11 @@ public class Polyligne extends Figure {
 
     @Override
     public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        String str= "<Polyligne>\n"+this.listP.size()+"\n";
-        for(int i = 0 ; i<listP.size(); i++){
-            str+=this.listP.get(i).toTxt();
+        String str = "<Polyligne>\n" + this.listP.size() + "\n";
+        for (int i = 0; i < listP.size(); i++) {
+            str += this.listP.get(i).toTxt();
         }
-        str+=this.getIdFig()+"\n";
+        str += this.getIdFig() + "\n";
         return str;
     }
 
@@ -125,7 +126,7 @@ public class Polyligne extends Figure {
     public String toString() {
         String str = "Polyligne{";
         for (int i = 0; i < this.listP.size(); i++) {
-            str += this.listP.get(i).toString()+",";
+            str += this.listP.get(i).toString() + ",";
         }
         str += " idFig='" + super.getIdFig() + "'}";
         return str;

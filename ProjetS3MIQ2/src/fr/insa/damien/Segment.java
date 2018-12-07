@@ -1,14 +1,15 @@
 package fr.insa.damien;
 
-import static fr.insa.damien.util.*;
+import static fr.insa.damien.util.max;
+import static fr.insa.damien.util.min;
 
 
 public class Segment extends Figure {
+    //statics
+    private static int compteurId = 0;
     //attributs
     private Point P0;
     private Point P1;
-    //statics
-    private static int compteurId=0;
 
     //constructeurs
 
@@ -22,22 +23,22 @@ public class Segment extends Figure {
         this.P0 = p0;
         this.P1 = p1;
         compteurId++;
-        super.setIdFig("Segment_N°"+ compteurId);
+        super.setIdFig("Segment_N°" + compteurId);
     }
 
-    public Segment(){
+    public Segment() {
         System.out.println("Pour créer le segment nous allons créer 2 points");
         System.out.println("Point 1 :");
-        this.P0 =new Point();
+        this.P0 = new Point();
         System.out.println("Point 2 :");
         this.P1 = new Point();
-        super.setIdFig("Segment_N°"+ compteurId);
+        super.setIdFig("Segment_N°" + compteurId);
         compteurId++;
     }
 
     //methodes
 
-    public double longueurSegment(){
+    public double longueurSegment() {
         return this.P0.distancePoint(P1);
     }
 
@@ -75,28 +76,28 @@ public class Segment extends Figure {
     }
 
     @Override
-    public double maxX(){
-        return max(this.P0.getX(),this.P1.getX());
+    public double maxX() {
+        return max(this.P0.getX(), this.P1.getX());
     }
 
     @Override
-    public double minX(){
-        return min(this.P0.getX(),this.P1.getX());
+    public double minX() {
+        return min(this.P0.getX(), this.P1.getX());
     }
 
     @Override
-    public double maxY(){
-        return max(this.P0.getY(),this.P1.getY());
+    public double maxY() {
+        return max(this.P0.getY(), this.P1.getY());
     }
 
     @Override
-    public double minY(){
-        return min(this.P0.getY(),this.P1.getY());
+    public double minY() {
+        return min(this.P0.getY(), this.P1.getY());
     }
 
     @Override
     public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Segment>\n"+this.P0.toTxt()+this.P1.toTxt()+this.getIdFig()+"\n";
+        return "<Segment>\n" + this.P0.toTxt() + this.P1.toTxt() + this.getIdFig() + "\n";
     }
 
     @Override

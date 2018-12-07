@@ -1,6 +1,6 @@
 package fr.insa.damien;
 
-public abstract class Figure{
+public abstract class Figure {
 
     //attributs
     private String idFig; // definit dans les subclasses
@@ -9,7 +9,7 @@ public abstract class Figure{
 
     //methodes
 
-        //non abstraites
+    //non abstraites
 
     public String getIdFig() {
         return idFig;
@@ -19,7 +19,7 @@ public abstract class Figure{
         this.idFig = idFig;
     }
 
-        //abstraites
+    //abstraites
 
     public abstract double distancePoint(Point A);
 

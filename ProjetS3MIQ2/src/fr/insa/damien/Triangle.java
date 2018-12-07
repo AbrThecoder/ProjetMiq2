@@ -42,8 +42,8 @@ public class Triangle extends Figure {
 
     //methodes
 
-    public double perimetre(){
-        return P0.distancePoint(P1)+P1.distancePoint(P2)+P2.distancePoint(P0);
+    public double perimetre() {
+        return P0.distancePoint(P1) + P1.distancePoint(P2) + P2.distancePoint(P0);
     }
 
     public Point getP0() {
@@ -97,7 +97,7 @@ public class Triangle extends Figure {
 
     @Override
     public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Triangle>\n"+this.P0.toTxt()+this.P1.toTxt()+this.P2.toTxt()+this.getIdFig()+"\n";
+        return "<Triangle>\n" + this.P0.toTxt() + this.P1.toTxt() + this.P2.toTxt() + this.getIdFig() + "\n";
     }
 
     @Override

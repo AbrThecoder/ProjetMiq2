@@ -4,12 +4,12 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Point extends Figure {
-    //attributs
-    private double x;
-    private double y;
     //statics
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    //attributs
+    private double x;
+    private double y;
 
     //constructeurs
 
@@ -39,7 +39,7 @@ public class Point extends Figure {
     //methodes
 
     public double distancePoint(Point p) {
-        return Math.sqrt(Math.pow(this.x - p.getX(),2)+Math.pow(this.y - p.getY(),2));
+        return Math.sqrt(Math.pow(this.x - p.getX(), 2) + Math.pow(this.y - p.getY(), 2));
     }
 
     public double getX() {
@@ -80,7 +80,7 @@ public class Point extends Figure {
 
     @Override
     public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Point>\n"+this.x+"\n"+this.y+"\n"+this.getIdFig()+"\n";
+        return "<Point>\n" + this.x + "\n" + this.y + "\n" + this.getIdFig() + "\n";
     }
 
     @Override

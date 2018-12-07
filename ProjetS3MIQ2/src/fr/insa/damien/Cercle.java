@@ -7,12 +7,12 @@ import static java.lang.Math.abs;
 
 public class Cercle extends Figure {
 
-    //attributs
-    private double rayon;
-    private Point centre;
     //utils
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    //attributs
+    private double rayon;
+    private Point centre;
 
     //constructeurs
 
@@ -23,7 +23,7 @@ public class Cercle extends Figure {
         compteurId++;
     }
 
-    public Cercle(Point centre,double rayon, String id) {
+    public Cercle(Point centre, double rayon, String id) {
         this.rayon = rayon;
         this.centre = centre;
         super.setIdFig(id);
@@ -53,7 +53,8 @@ public class Cercle extends Figure {
     }
 
     public void setCentre(Point centre) {
-        this.centre = centre;}
+        this.centre = centre;
+    }
 
     @Override
     public double distancePoint(Point A) {
@@ -82,7 +83,7 @@ public class Cercle extends Figure {
 
 
     public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Cercle>\n"+this.centre.toTxt()+this.rayon+"\n"+this.getIdFig()+"\n";
+        return "<Cercle>\n" + this.centre.toTxt() + this.rayon + "\n" + this.getIdFig() + "\n";
     }
 
     @Override
@@ -90,6 +91,6 @@ public class Cercle extends Figure {
         return "Cercle{" +
                 "P=" + this.centre.toString() +
                 ",r=" + this.rayon +
-                ", idFig=" + super.getIdFig() + "}" ;
+                ", idFig=" + super.getIdFig() + "}";
     }
 }

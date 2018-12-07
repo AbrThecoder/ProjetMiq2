@@ -12,7 +12,6 @@ public class MainClass {
         menu();
 
 
-
     }
 
     public static EnsembleFigure menu() throws IOException {
@@ -267,7 +266,7 @@ public class MainClass {
     public static void writeFile(EnsembleFigure ensembleFigure, String repertory) throws IOException {//Convertit un Ensemble figure en un fichier txt
         FileWriter fileWriter = new FileWriter(repertory);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        String str=ensembleFigure.toTxt();
+        String str = ensembleFigure.toTxt();
         bufferedWriter.write(str);
         bufferedWriter.close();
     }

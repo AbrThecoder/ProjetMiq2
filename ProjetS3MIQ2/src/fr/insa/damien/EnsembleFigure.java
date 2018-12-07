@@ -123,11 +123,11 @@ public class EnsembleFigure extends Figure {
 
     @Override
     public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        String str= "<EnsembleFigure>\n";
-        for(int i = 0 ; i<this.size();i++){
-            str+=this.get(i).toTxt();
+        String str = "<EnsembleFigure>\n";
+        for (int i = 0; i < this.size(); i++) {
+            str += this.get(i).toTxt();
         }
-        str+="</EnsembleFigure>\n"+this.getIdFig()+"\n";
+        str += "</EnsembleFigure>\n" + this.getIdFig() + "\n";
         return str;
     }
 
