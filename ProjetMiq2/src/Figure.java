@@ -7,7 +7,8 @@ import java.io.Serializable;
 
     public abstract class Figure implements Serializable  {
     String idFigure;
-    double maxX,maxY,minX,minY;
+    // inutile je crois 
+        //double maxX,maxY,minX,minY;
     
     
     
