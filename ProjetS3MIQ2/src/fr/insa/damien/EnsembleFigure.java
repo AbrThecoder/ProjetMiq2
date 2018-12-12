@@ -1,5 +1,6 @@
 package fr.insa.damien;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 import static fr.insa.damien.util.max;
@@ -67,6 +68,14 @@ public class EnsembleFigure extends Figure {
 
     public int size() { //retourne le nombre de figure presente dans la liste
         return figures.size();
+    }
+
+
+    @Override
+    public void paint(JPanel jPanel){
+        for (int  i = 0; i<figures.size();i++){
+            figures.get(i).paint(jPanel);
+        }
     }
 
     @Override

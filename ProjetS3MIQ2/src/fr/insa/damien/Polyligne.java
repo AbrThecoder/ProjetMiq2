@@ -1,5 +1,6 @@
 package fr.insa.damien;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -53,6 +54,8 @@ public class Polyligne extends Figure {
         compteurId++;
     }
 
+
+
     //methodes
 
     public double longeurPolyligne() { //retoune la longueur du polyligne
@@ -69,6 +72,11 @@ public class Polyligne extends Figure {
 
     public void setListP(ArrayList<Point> listP) { //remplace la liste de point formant le polyligne
         this.listP = listP;
+    }
+
+    @Override
+    public void paint(JPanel jPanel){
+
     }
 
     @Override

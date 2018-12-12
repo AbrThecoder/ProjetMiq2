@@ -1,5 +1,7 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -72,6 +74,19 @@ public class Polygone extends Figure {
 
     public void setListP(ArrayList<Point> listP) { //Chnage la liste de point composant le polygone
         this.listP = listP;
+    }
+
+    @Override
+    public void paint(JPanel jPanel){
+        int xs[] = new int[listP.size()];
+        int ys[] = new int[listP.size()];
+
+        for (int i=0;i<listP.size();i++){
+            xs[i]=(int)listP.get(i).getX();
+            ys[i]=(int)listP.get(i).getY();
+        }
+        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
+        graphics2D.drawPolygon(xs,ys,listP.size());
     }
 
     @Override

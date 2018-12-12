@@ -1,5 +1,7 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -38,6 +40,14 @@ public class Cercle extends Figure {
         compteurId++;
     }
 
+    public Cercle(Point centre, Point point){
+        this.centre=centre;
+        this.rayon=centre.distancePoint(point);
+        super.setIdFig("Cercle_N°" + compteurId);
+        compteurId++;
+    }
+
+
     //methodes
 
     public double getRayon() {
@@ -54,6 +64,12 @@ public class Cercle extends Figure {
 
     public void setCentre(Point centre) {
         this.centre = centre;
+    }
+
+    @Override
+    public void paint(JPanel jPanel){
+        Graphics2D graphics2D=(Graphics2D)jPanel.getGraphics();
+        graphics2D.drawOval((int)(centre.getX()-this.rayon),(int)(centre.getY()-this.rayon),(int)rayon*2,(int)rayon*2);
     }
 
     @Override

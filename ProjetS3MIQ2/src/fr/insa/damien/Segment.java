@@ -1,5 +1,9 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+
+import java.awt.*;
+
 import static fr.insa.damien.util.max;
 import static fr.insa.damien.util.min;
 
@@ -35,6 +39,7 @@ public class Segment extends Figure {
         super.setIdFig("Segment_N°" + compteurId);
         compteurId++;
     }
+
 
     //methodes
 
@@ -73,6 +78,12 @@ public class Segment extends Figure {
 
     public void setP1(Point P1) {
         this.P1 = P1;
+    }
+
+    @Override
+    public void paint(JPanel jPanel){
+        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
+        graphics2D.drawLine((int)P0.getX(),(int)P0.getY(),(int)P1.getX(),(int)P1.getY());
     }
 
     @Override

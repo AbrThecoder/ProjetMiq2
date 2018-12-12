@@ -1,5 +1,9 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+
+import java.awt.*;
+
 import static fr.insa.damien.util.max;
 import static fr.insa.damien.util.min;
 
@@ -68,6 +72,14 @@ public class Triangle extends Figure {
 
     public void setP2(Point p2) {
         P2 = p2;
+    }
+
+    @Override
+    public void paint(JPanel jPanel){
+        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
+        int xs[]={(int)this.P0.getX(),(int)this.P1.getX(),(int)this.P2.getX()};
+        int ys[]={(int)this.P0.getY(),(int)this.P1.getY(),(int)this.P2.getY()};
+        graphics2D.drawPolygon(xs,ys,3);
     }
 
     @Override

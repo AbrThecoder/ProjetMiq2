@@ -1,9 +1,14 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Point extends Figure {
+public class Point extends Figure implements MouseListener {
     //statics
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
@@ -59,6 +64,12 @@ public class Point extends Figure {
     }
 
     @Override
+    public void paint(JPanel jPanel){
+        Graphics2D graphics2D =(Graphics2D) jPanel.getGraphics();
+        graphics2D.fillOval((int)x,(int)y,3,3);
+    }
+
+    @Override
     public double maxX() {
         return x;
     }
@@ -93,4 +104,29 @@ public class Point extends Figure {
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

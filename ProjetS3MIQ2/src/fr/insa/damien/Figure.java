@@ -1,5 +1,7 @@
 package fr.insa.damien;
 
+import javax.swing.*;
+
 public abstract class Figure {
 
     //attributs
@@ -20,6 +22,8 @@ public abstract class Figure {
     }
 
     //abstraites
+
+    public abstract void paint(JPanel jPanel);
 
     public abstract double distancePoint(Point A);
 

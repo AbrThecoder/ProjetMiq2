@@ -1,0 +1,139 @@
+JFDML JFormDesigner: "6.0.4.1.172" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill]"
+			"$rowConstraints": "[]"
+		} ) {
+			name: "this"
+			"title": "graphique2D"
+			"minimumSize": new java.awt.Dimension( 1900, 1000 )
+			addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "thisKeyPressed", true ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+				"$layoutConstraints": "fill,hidemode 3"
+				"$columnConstraints": "[fill]"
+				"$rowConstraints": "[]"
+			} ) {
+				name: "displayPanel"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseReleased", "displayPanelMouseReleased", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0,dock center"
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "Fichier"
+					"text": "Fichier"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Nouveau"
+						"text": "Nouveau"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NouveauActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NouveauActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Ouvrir"
+						"text": "Ouvrir"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "OuvrirActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "OuvrirActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Enregistrer"
+						"text": "Enregistrer"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "EnregistrerActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "EnregistrerActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "Edit"
+					"text": "Edit"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Undo"
+						"text": "Undo"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "UndoActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "UndoActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Redo"
+						"text": "Redo"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "RedoActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "RedoActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "Zoom"
+					"text": "Zoom"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "ZoomPlus"
+						"text": "Zoom +"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomPlusActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomPlusActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "ZoomMoins"
+						"text": "Zoom -"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomMoinsActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomMoinsActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "ZoomBoite"
+						"text": "Zoom Boite"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomBoiteActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ZoomBoiteActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "Ajouter"
+					"text": "Ajouter"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterPoint"
+						"text": "Point"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPointActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPointActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterSegment"
+						"text": "Segment"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterSegmentActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterSegmentActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterRectangle"
+						"text": "Rectangle"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterRectangleActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterRectangleActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterTriangle"
+						"text": "Triangle"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterTriangleActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterTriangleActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterCercle"
+						"text": "Cercle"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterCercleActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterCercleActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterPolygone"
+						"text": "Polygone"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPolygoneActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPolygoneActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "AjouterPolyligne"
+						"text": "Polyligne"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPolyligneActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AjouterPolyligneActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 10, 40 )
+			"size": new java.awt.Dimension( 880, 575 )
+		} )
+	}
+}
