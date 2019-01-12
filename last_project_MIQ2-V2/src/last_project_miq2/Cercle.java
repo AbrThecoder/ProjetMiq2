@@ -41,9 +41,9 @@ public class Cercle extends Figure {
         compteurId++;
     }
 
-    public Cercle(Point centre, Point point){
-        this.centre=centre;
-        this.rayon=centre.distancePoint(point);
+    public Cercle(Point centre, Point point) {
+        this.centre = centre;
+        this.rayon = centre.distancePoint(point);
         super.setIdFig("Cercle_N°" + compteurId);
         compteurId++;
     }
@@ -68,15 +68,15 @@ public class Cercle extends Figure {
     }
 
     @Override
-    public void paint(JPanel jPanel){
-        Graphics2D graphics2D=(Graphics2D)jPanel.getGraphics();
-        graphics2D.drawOval((int)(centre.getX()-this.rayon),(int)(centre.getY()-this.rayon),(int)rayon*2,(int)rayon*2);
+    public void paint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
+        graphics2D.drawOval((int) (centre.getX() - this.rayon), (int) (centre.getY() - this.rayon), (int) rayon * 2, (int) rayon * 2);
     }
-    
-    public void depaint(JPanel jPanel){
-        Graphics2D graphics2D=(Graphics2D)jPanel.getGraphics();
+
+    public void depaint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
         graphics2D.setColor(Color.WHITE);
-        graphics2D.drawOval((int)(centre.getX()-this.rayon),(int)(centre.getY()-this.rayon),(int)rayon*2,(int)rayon*2);
+        graphics2D.drawOval((int) (centre.getX() - this.rayon), (int) (centre.getY() - this.rayon), (int) rayon * 2, (int) rayon * 2);
     }
 
     @Override
@@ -104,9 +104,9 @@ public class Cercle extends Figure {
         return centre.maxY() - rayon;
     }
 
-
-    public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Cercle>\n" + this.centre.toTxt() + this.rayon + "\n" + this.getIdFig() + "\n";
+    @Override
+    public String toTxt(String nl) { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        return "<Cercle>" + nl + this.centre.toTxt(nl) + this.rayon + nl + this.getIdFig() + nl;
     }
 
     @Override

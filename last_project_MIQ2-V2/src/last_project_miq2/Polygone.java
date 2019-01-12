@@ -1,8 +1,5 @@
 package last_project_miq2;
 
-import last_project_miq2.Segment;
-import last_project_miq2.Point;
-import last_project_miq2.Figure;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -80,16 +77,16 @@ public class Polygone extends Figure {
     }
 
     @Override
-    public void paint(JPanel jPanel){
+    public void paint(JPanel jPanel) {
         int xs[] = new int[listP.size()];
         int ys[] = new int[listP.size()];
 
-        for (int i=0;i<listP.size();i++){
-            xs[i]=(int)listP.get(i).getX();
-            ys[i]=(int)listP.get(i).getY();
+        for (int i = 0; i < listP.size(); i++) {
+            xs[i] = (int) listP.get(i).getX();
+            ys[i] = (int) listP.get(i).getY();
         }
-        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
-        graphics2D.drawPolygon(xs,ys,listP.size());
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
+        graphics2D.drawPolygon(xs, ys, listP.size());
     }
 
     @Override
@@ -135,12 +132,12 @@ public class Polygone extends Figure {
     }
 
     @Override
-    public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        String str = "<Triangle>\n" + this.listP.size() + "\n";
+    public String toTxt(String nl) { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        String str = "<Triangle>" + nl + this.listP.size() + nl;
         for (int i = 0; i < listP.size(); i++) {
-            str += this.listP.get(i).toTxt();
+            str += this.listP.get(i).toTxt(nl);
         }
-        str += this.getIdFig() + "\n";
+        str += this.getIdFig() + nl;
         return str;
     }
 

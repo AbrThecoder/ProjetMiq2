@@ -1,15 +1,11 @@
 package last_project_miq2;
 
-import last_project_miq2.Figure;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Point extends Figure   {
+public class Point extends Figure {
     //statics
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
@@ -65,9 +61,9 @@ public class Point extends Figure   {
     }
 
     @Override
-    public void paint(JPanel jPanel){
-        Graphics2D graphics2D =(Graphics2D) jPanel.getGraphics();
-        graphics2D.fillOval((int)x,(int)y,10,10);
+    public void paint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
+        graphics2D.fillOval((int) x, (int) y, 10, 10);
     }
 
     @Override
@@ -91,8 +87,8 @@ public class Point extends Figure   {
     }
 
     @Override
-    public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Point>\n" + this.x + "\n" + this.y + "\n" + this.getIdFig() + "\n";
+    public String toTxt(String nl) {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        return "<Point>" + nl + this.x + nl + this.y + nl + this.getIdFig() + nl;
     }
 
     @Override
@@ -105,5 +101,4 @@ public class Point extends Figure   {
     }
 
 
-    
 }

@@ -1,10 +1,6 @@
 package last_project_miq2;
 
-import last_project_miq2.Segment;
-import last_project_miq2.Point;
-import last_project_miq2.Figure;
 import javax.swing.*;
-
 import java.awt.*;
 
 import static last_project_miq2.util.max;
@@ -78,11 +74,11 @@ public class Triangle extends Figure {
     }
 
     @Override
-    public void paint(JPanel jPanel){
-        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
-        int xs[]={(int)this.P0.getX(),(int)this.P1.getX(),(int)this.P2.getX()};
-        int ys[]={(int)this.P0.getY(),(int)this.P1.getY(),(int)this.P2.getY()};
-        graphics2D.drawPolygon(xs,ys,3);
+    public void paint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
+        int xs[] = {(int) this.P0.getX(), (int) this.P1.getX(), (int) this.P2.getX()};
+        int ys[] = {(int) this.P0.getY(), (int) this.P1.getY(), (int) this.P2.getY()};
+        graphics2D.drawPolygon(xs, ys, 3);
     }
 
     @Override
@@ -111,8 +107,8 @@ public class Triangle extends Figure {
     }
 
     @Override
-    public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Triangle>\n" + this.P0.toTxt() + this.P1.toTxt() + this.P2.toTxt() + this.getIdFig() + "\n";
+    public String toTxt(String nl) {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        return "<Triangle>" + nl + this.P0.toTxt(nl) + this.P1.toTxt(nl) + this.P2.toTxt(nl) + this.getIdFig() + nl;
     }
 
     @Override

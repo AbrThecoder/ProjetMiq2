@@ -1,9 +1,6 @@
 package last_project_miq2;
 
-import last_project_miq2.Point;
-import last_project_miq2.Figure;
 import javax.swing.*;
-
 import java.awt.*;
 
 import static last_project_miq2.util.max;
@@ -83,14 +80,15 @@ public class Segment extends Figure {
     }
 
     @Override
-    public void paint(JPanel jPanel){
-        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
-        graphics2D.drawLine((int)P0.getX(),(int)P0.getY(),(int)P1.getX(),(int)P1.getY()); 
+    public void paint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
+        graphics2D.drawLine((int) P0.getX(), (int) P0.getY(), (int) P1.getX(), (int) P1.getY());
     }
-    public void depaint(JPanel jPanel){
-        Graphics2D graphics2D = (Graphics2D)jPanel.getGraphics();
+
+    public void depaint(JPanel jPanel) {
+        Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
         graphics2D.setColor(Color.WHITE);
-        graphics2D.drawLine((int)P0.getX(),(int)P0.getY(),(int)P1.getX(),(int)P1.getY()); 
+        graphics2D.drawLine((int) P0.getX(), (int) P0.getY(), (int) P1.getX(), (int) P1.getY());
     }
 
     @Override
@@ -114,8 +112,8 @@ public class Segment extends Figure {
     }
 
     @Override
-    public String toTxt() {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        return "<Segment>\n" + this.P0.toTxt() + this.P1.toTxt() + this.getIdFig() + "\n";
+    public String toTxt(String nl) {//methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        return "<Segment>" + nl + this.P0.toTxt(nl) + this.P1.toTxt(nl) + this.getIdFig() + nl;
     }
 
     @Override
