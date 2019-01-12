@@ -1,7 +1,5 @@
 package last_project_miq2;
 
-import last_project_miq2.Point;
-import last_project_miq2.Figure;
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -74,19 +72,20 @@ public class EnsembleFigure extends Figure {
 
 
     @Override
-    public void paint(JPanel jPanel){
-        for (int  i = 0; i<this.figures.size();i++){
+    public void paint(JPanel jPanel) {
+        for (int i = 0; i < this.figures.size(); i++) {
             this.figures.get(i).paint(jPanel);
         }
     }
-    public void depaint(JPanel jPanel){
+
+    public void depaint(JPanel jPanel) {
         this.figures.clear();
-        for (int  i = 0; i<this.figures.size();i++){
+        for (int i = 0; i < this.figures.size(); i++) {
             this.figures.get(i).paint(jPanel);
         }
         jPanel.repaint();
     }
-    
+
 
     @Override
     public double distancePoint(Point A) {
@@ -141,12 +140,12 @@ public class EnsembleFigure extends Figure {
     }
 
     @Override
-    public String toTxt() { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        String str = "<EnsembleFigure>\n";
+    public String toTxt(String nl) { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+        String str = "<EnsembleFigure>" + nl;
         for (int i = 0; i < this.size(); i++) {
-            str += this.get(i).toTxt();
+            str += this.get(i).toTxt(nl);
         }
-        str += "</EnsembleFigure>\n" + this.getIdFig() + "\n";
+        str += "</EnsembleFigure>" + nl + this.getIdFig() + nl;
         return str;
     }
 

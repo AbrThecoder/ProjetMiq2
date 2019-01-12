@@ -36,7 +36,7 @@ public abstract class Figure {
 
     public abstract double minY();
 
-    public abstract String toTxt(); //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
+    public abstract String toTxt(String nl); //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
 
     public abstract String toString();
 
