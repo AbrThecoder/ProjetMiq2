@@ -1,0 +1,15 @@
+<EnsembleFigure>
+<Point>
+517.0
+269.0
+Point_N°1
+<Point>
+979.0
+392.0
+Point_N°2
+<Point>
+675.0
+547.0
+Point_N°3
+</EnsembleFigure>
+EnsembleFigure_N°0
