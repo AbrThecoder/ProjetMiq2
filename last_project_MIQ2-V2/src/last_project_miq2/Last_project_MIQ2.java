@@ -6,7 +6,6 @@
 package last_project_miq2;
 
 /**
- *
  * @author mouadabrini
  */
 public class Last_project_MIQ2 {
@@ -17,5 +16,5 @@ public class Last_project_MIQ2 {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }

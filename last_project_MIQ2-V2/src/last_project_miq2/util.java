@@ -1,7 +1,5 @@
 package last_project_miq2;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class util {
