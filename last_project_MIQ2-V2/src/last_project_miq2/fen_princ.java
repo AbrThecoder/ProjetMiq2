@@ -235,9 +235,7 @@ public class fen_princ extends javax.swing.JFrame {
         });
     }
 
-    public void ensembleFigureAdd(double X, double Y, String ID) {
-        this.ensembleFigure.add(new Point(X, Y, ID));
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -488,15 +486,13 @@ public class fen_princ extends javax.swing.JFrame {
             JFrame frm = null;    // to fool compiler to allow null as first arg
             COORD coord = new COORD(frm, true);
             coord.setVisible(true);            // waits here until user closes window
-            System.out.println("after jd");
-            coord.dispose();
             ensembleFigure.add(coord.p);
 
 
         } else {
             ajouteFigure = "Point";
         }
-
+        ensembleFigure.paint(displayPanel);
         pointArrayList.clear();
         System.out.println(ensembleFigure.getAll());
 
@@ -568,13 +564,17 @@ public class fen_princ extends javax.swing.JFrame {
 
 
         if (!click.isSelected()) {
-            pointArrayList.clear();
-            Segment_Panel segment_panel = new Segment_Panel();
+            
+            JFrame frm=null;
+            SegmentPanel segment_panel = new SegmentPanel(frm,true);
             segment_panel.setVisible(true);
+            segment_panel.dispose();
             ensembleFigure.add(segment_panel.S);
         } else {
             ajouteFigure = "Segment";
         }
+        ensembleFigure.paint(displayPanel);
+        pointArrayList.clear();
         System.out.println(ensembleFigure.getAll());
 
     }
