@@ -26,6 +26,19 @@ public class Rectangle extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        this.p0.zoom(coefficient);
+        this.p1.zoom(coefficient);
+
+    }
+
+    @Override
+    public void translater(Point point) {
+        this.p0.translater(point);
+        this.p1.translater(point);
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
         Point corner1 = new Point(min(p0.getX(), p1.getX()), min(p0.getY(), p1.getY()));

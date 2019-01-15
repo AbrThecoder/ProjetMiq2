@@ -75,6 +75,20 @@ public class Polyligne extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        for (int i = 0; i < listP.size(); i++) {
+            this.listP.get(i).zoom(coefficient);
+        }
+    }
+
+    @Override
+    public void translater(Point point) {
+        for(int i = 0; i<this.listP.size();i++){
+            this.listP.get(i).translater(point);
+        }
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         int xs[] = new int[listP.size()];
         int ys[] = new int[listP.size()];

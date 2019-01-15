@@ -5,8 +5,7 @@
  */
 package last_project_miq2;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -210,6 +209,9 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         revenir = new javax.swing.JMenu();
         arriere = new javax.swing.JMenuItem();
         effacer = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        zoomplus = new javax.swing.JMenuItem();
+        zoommoins = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -225,7 +227,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
                 displayPanelMouseReleased(evt);
             }
         });
-        displayPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+        this.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 displayPanelKeyPressed(evt);
             }
@@ -249,16 +251,12 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         });
 
         quitter.setText("Fichier");
-        quitter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitterActionPerformed(evt);
-            }
-        });
+
 
         jMenuItem1.setText("Quitter");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                quitterActionPerformed(evt);
             }
         });
         quitter.add(jMenuItem1);
@@ -266,7 +264,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         enregistrer.setText("Enregistrer");
         enregistrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enregistrerActionPerformed(evt);
+                enregistrerActionPerformed();
             }
         });
         quitter.add(enregistrer);
@@ -274,15 +272,20 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         enregistrer_sous.setText("Enregistrer sous");
         enregistrer_sous.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enregistrer_sousActionPerformed(evt);
+                enregistrer_sousActionPerformed();
             }
         });
         quitter.add(enregistrer_sous);
+        quitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitterActionPerformed(evt);
+            }
+        });
 
         ouvrir.setText("Ouvrir");
         ouvrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ouvrirActionPerformed(evt);
+                ouvrirActionPerformed();
             }
         });
         quitter.add(ouvrir);
@@ -362,7 +365,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         arriere.setText("En arrière");
         arriere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arriereActionPerformed(evt);
+                arriereActionPerformed();
             }
         });
         revenir.add(arriere);
@@ -376,6 +379,26 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         revenir.add(effacer);
 
         jMenuBar1.add(revenir);
+
+        jMenu1.setText("zoom");
+
+        zoomplus.setText("zoom +");
+        zoomplus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomplusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(zoomplus);
+
+        zoommoins.setText("zoom -");
+        zoommoins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoommoinsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(zoommoins);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -397,7 +420,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void enregistrer_sousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrer_sousActionPerformed
+    private void enregistrer_sousActionPerformed() {//GEN-FIRST:event_enregistrer_sousActionPerformed
         JFileChooser jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jFileChooser.setDialogTitle("Choose a directory to save your file: ");
         jFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -472,8 +495,20 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
        
     }//GEN-LAST:event_triangleActionPerformed
 
-    private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
+    private void enregistrerActionPerformed() {//GEN-FIRST:event_enregistrerActionPerformed
         // TODO add your handling code here:
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        Date date = new Date();
+
+        try {
+            String path = System.getProperty("user.dir") + "\\FichiersSauvegardes\\Dessin2D_" + dateFormat.format(date) + ".txt";
+            System.out.println(path);
+            writeFile(ensembleFigure, path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error");
+
+        }
     }//GEN-LAST:event_enregistrerActionPerformed
 
     private void PointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PointActionPerformed
@@ -578,6 +613,26 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
                 case "Polyligne":
                     pointArrayList.add(new Point(evt.getX(), evt.getY()));
                     break;
+
+                case "zoom+":
+                    ensembleFigure.translater(new Point(evt.getX(),evt.getY()));
+                    ensembleFigure.zoom(2.5f);
+                    ensembleFigure.translater(new Point(-evt.getX(),-evt.getY()));
+                    Graphics graphics =displayPanel.getGraphics();
+                    Graphics2D graphics2D = (Graphics2D)graphics;
+                    graphics2D.setColor(Color.WHITE);
+                    graphics2D.fillRect(0,0,1920,1080);
+                    break;
+                case "zoom-":
+                    ensembleFigure.translater(new Point(evt.getX(),evt.getY()));
+                    ensembleFigure.zoom(0.4f);
+                    ensembleFigure.translater(new Point(-evt.getX(),-evt.getY()));
+                    graphics =displayPanel.getGraphics();
+                    graphics2D = (Graphics2D)graphics;
+                    graphics2D.setColor(Color.WHITE);
+                    graphics2D.fillRect(0,0,1920,1080);
+                    break;
+
                 default:
                     return;
 
@@ -656,21 +711,14 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
     }//GEN-LAST:event_displayPanelMouseMoved
 
     private void quitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitterActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        Date date = new Date();
-
-        try {
-            String path = System.getProperty("user.dir") + "\\FichiersSauvegardes\\Dessin2D_" + dateFormat.format(date) + ".txt";
-            System.out.println(path);
-            writeFile(ensembleFigure, path);
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error");
-
+        int a=JOptionPane.showConfirmDialog(this,"Voulez-vous vraiment quitter");
+        if(a==JOptionPane.YES_OPTION){
+            this.dispose();
         }
+
     }//GEN-LAST:event_quitterActionPerformed
 
-    private void ouvrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ouvrirActionPerformed
+    private void ouvrirActionPerformed() {//GEN-FIRST:event_ouvrirActionPerformed
        JFileChooser jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jFileChooser.setDialogTitle("Choose a directory to open your file: ");
         jFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -691,7 +739,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         }
     }//GEN-LAST:event_ouvrirActionPerformed
 
-    private void arriereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arriereActionPerformed
+    private void arriereActionPerformed() {//GEN-FIRST:event_arriereActionPerformed
         ensembleFigure.remove(ensembleFigure.size()-1);
         displayPanel.paint(displayPanel.getGraphics());
         ensembleFigure.paint(displayPanel);
@@ -713,17 +761,24 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
 
         if (evt.getKeyCode() == KeyEvent.VK_S && (evt.getModifiers() & KeyEvent.CTRL_MASK) != 0) {
             //^S
+            enregistrerActionPerformed();
            
         }
         if ((evt.getKeyCode() == KeyEvent.VK_S) && ((evt.getModifiers() & KeyEvent.CTRL_MASK) != 0) && ((evt.getModifiers() & KeyEvent.SHIFT_MASK) != 0)) {
             // ^+S
-           
+            enregistrer_sousActionPerformed();
+
 
         }
 
         if (evt.getKeyCode() == KeyEvent.VK_Z && (evt.getModifiers() & KeyEvent.CTRL_MASK) != 0) {
             //^Z
-          
+          arriereActionPerformed();
+        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_O && (evt.getModifiers() & KeyEvent.CTRL_MASK) != 0) {
+            //^O-
+            ouvrirActionPerformed();
         }
     }//GEN-LAST:event_displayPanelKeyPressed
 
@@ -736,6 +791,17 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
         displayPanel.paint(displayPanel.getGraphics());
         ensembleFigure.paint(displayPanel);
     }//GEN-LAST:event_effacerActionPerformed
+
+    private void zoomplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomplusActionPerformed
+        // TODO add your handling code here:
+        ajouteFigure="zoom+";
+    }//GEN-LAST:event_zoomplusActionPerformed
+
+    private void zoommoinsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoommoinsActionPerformed
+        // TODO add your handling code here:
+        ajouteFigure="zoom-";
+
+    }//GEN-LAST:event_zoommoinsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -781,6 +847,7 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
     private javax.swing.JMenuItem effacer;
     private javax.swing.JMenuItem enregistrer;
     private javax.swing.JMenuItem enregistrer_sous;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -793,6 +860,8 @@ public static int readInt(BufferedReader bufferedReader) throws IOException { //
     private javax.swing.JMenu revenir;
     private javax.swing.JMenuItem segment;
     private javax.swing.JMenuItem triangle;
+    private javax.swing.JMenuItem zoommoins;
+    private javax.swing.JMenuItem zoomplus;
     // End of variables declaration//GEN-END:variables
 
    

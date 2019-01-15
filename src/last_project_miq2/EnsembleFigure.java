@@ -72,6 +72,20 @@ public class EnsembleFigure extends Figure {
 
 
     @Override
+    public void zoom(float coefficient) {
+        for (int i=0;i<figures.size();i++){
+            this.figures.get(i).zoom(coefficient);
+        }
+    }
+
+    @Override
+    public void translater(Point point) {
+        for(int i = 0; i<this.figures.size(); i++){
+            this.figures.get(i).translater(point);
+        }
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         for (int i = 0; i < this.figures.size(); i++) {
             this.figures.get(i).paint(jPanel);

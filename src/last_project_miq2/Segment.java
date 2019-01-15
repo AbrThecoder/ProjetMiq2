@@ -80,6 +80,18 @@ public class Segment extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        this.P0.zoom(coefficient);
+        this.P1.zoom(coefficient);
+    }
+
+    @Override
+    public void translater(Point point) {
+        this.P0.translater(point);
+        this.P1.translater(point);
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
         graphics2D.drawLine((int) P0.getX(), (int) P0.getY(), (int) P1.getX(), (int) P1.getY());

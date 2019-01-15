@@ -23,6 +23,9 @@ public abstract class Figure {
     }
 
     //abstraites
+    public abstract void zoom(float coefficient);
+
+    public abstract void translater(Point point);
 
     public abstract void paint(JPanel jPanel);
 

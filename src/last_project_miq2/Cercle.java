@@ -68,6 +68,17 @@ public class Cercle extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        this.centre.zoom(coefficient);
+        this.rayon=((double)coefficient)*this.rayon;
+    }
+
+    @Override
+    public void translater(Point point) {
+        this.centre.translater(point);
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
         graphics2D.drawOval((int) (centre.getX() - this.rayon), (int) (centre.getY() - this.rayon), (int) rayon * 2, (int) rayon * 2);

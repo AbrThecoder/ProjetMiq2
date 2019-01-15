@@ -77,6 +77,20 @@ public class Polygone extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        for (int i = 0; i < listP.size(); i++) {
+            this.listP.get(i).zoom(coefficient);
+        }
+    }
+    @Override
+    public void translater(Point point) {
+        for(int i = 0; i<this.listP.size();i++){
+            this.listP.get(i).translater(point);
+        }
+
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         int xs[] = new int[listP.size()];
         int ys[] = new int[listP.size()];
@@ -133,7 +147,7 @@ public class Polygone extends Figure {
 
     @Override
     public String toTxt(String nl) { //methode permettant d'ecrire dans le "language" de l'algorithme utilisé pour lire les fichiers avec le programme
-        String str = "<Triangle>" + nl + this.listP.size() + nl;
+        String str = "<Polygone>" + nl + this.listP.size() + nl;
         for (int i = 0; i < listP.size(); i++) {
             str += this.listP.get(i).toTxt(nl);
         }

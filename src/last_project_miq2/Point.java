@@ -10,6 +10,7 @@ public class Point extends Figure {
     private static int compteurId = 0;
     private static Scanner sc = new Scanner(System.in).useLocale(Locale.US);
     //attributs
+    private double rayon; // utile uniquement pour l'affichage
     private double x;
     private double y;
 
@@ -18,12 +19,14 @@ public class Point extends Figure {
     public Point(double x, double y, String id) {
         this.x = x;
         this.y = y;
+        this.rayon=10;
         super.setIdFig(id);
     }
 
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
+        this.rayon=10;
         super.setIdFig("Point_N°" + compteurId);
         compteurId++;
     }
@@ -61,9 +64,23 @@ public class Point extends Figure {
     }
 
     @Override
+    public void zoom(float coefficient) {
+        this.rayon=this.rayon*coefficient;
+        this.x=(int)((float)this.x*coefficient);
+        this.y=(int)((float)this.y*coefficient);
+
+    }
+
+    @Override
+    public void translater(Point point) {
+        this.x -=point.getX();
+        this.y-=point.getY();
+    }
+
+    @Override
     public void paint(JPanel jPanel) {
         Graphics2D graphics2D = (Graphics2D) jPanel.getGraphics();
-        graphics2D.fillOval((int) x, (int) y, 10, 10);
+        graphics2D.fillOval((int) x, (int) y, (int)this.rayon, (int)this.rayon);
     }
 
     @Override
